@@ -1,0 +1,84 @@
+#include <iostream>
+#include <vector>
+#include <list>
+#include <set>
+#include <queue>
+#include <map>
+#include <algorithm>
+#include <functional>
+#include <string>
+#include <complex>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+using namespace std;
+
+#define REP(i,p,n) for(int i=p;i<n;++i)
+#define rep(i,n) REP(i,0,n)
+
+const int MAXN = 256;
+string S[MAXN];
+
+char A[MAXN];
+bool P[MAXN];
+
+int T, A;
+
+bool solve()
+{
+    fill(P, P + MAXN, false);
+
+    int si = 0;
+
+    rep(ri, A)
+    {
+        bool gu = false, choki = false, pa = false;
+
+        const auto& s = S[ri];
+        const auto  isAlive = P[ri];
+
+        if (isAlive)
+        {
+            const int ssi = si % s.size();
+
+            if (s[ssi] == 'R') { gu = true; }
+            if (s[ssi] == 'S') { choki = true; }
+            if (s[ssi] == 'P') { par = true; }
+        }
+
+        if (R && S && P) { return false; }
+
+        char w = 0;
+
+        if (si < 500)
+        {
+            w = R && S ? 'R' : (S && P ? 'S' : (P && R ? 'P' : (R ? 'P' : (S ? 'R' : (P
+            if (R && S) { A[si] = 'R'; }
+            if (S && P) { A[si] = 'S'; }
+            if (P && R) { A[si] = 'P'; }
+        }
+        else
+        {
+        }
+
+
+    }
+
+
+    return true;
+}
+
+int main()
+{
+    cin >> T;
+
+    rep(t, T)
+    {
+        cin >> A;
+        rep (i, A) { cin >> S[i]; }
+
+        printf("Case #%d: %d\n", t + 1, 0);
+    }
+
+    return 0;
+}
