@@ -1,0 +1,102 @@
+#include <iostream>
+#include <vector>
+#include <list>
+#include <set>
+#include <queue>
+#include <map>
+#include <algorithm>
+#include <functional>
+#include <string>
+#include <complex>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <tuple>
+using namespace std;
+
+#define REP(i,p,n) for(ll i=p;i<ll(n);++i)
+#define rep(i,n) REP(i,0,n)
+
+using ll = long long int;
+using pll = pair<ll, ll>;
+
+const ll mod = static_cast<ll>(1e9) + 7;
+
+string S;
+set<string> ss;
+
+ll N;
+
+ll solve(ll lhs, ll rhs)
+{
+    ll ans = 0;
+
+    // 連結先延ばしパターン Kは増えないけど
+    {
+        // const ll res = solve(lhs, rhs + 1);
+        // ans = max(ans, res);
+    }
+
+    // 連結させてみせましょうパターン Kが増える
+    {
+        const auto s = S.substr(lhs, rhs - lhs + 1);
+
+        if (ss.find(s) != ss.end())
+        {
+        }
+
+
+        cout << s << endl;
+    }
+
+
+
+    /*
+    // 最後まで到達したら結合して1を返す
+    if (rhs == static_cast<ll>(S.size()))
+    {
+        string s = S.substr(lhs, rhs - lhs);
+        const auto it = ss.find(s);
+        ans = it != ss.end() ? ss.size() + 1: 0;
+
+        // printf("lhs=%lld, rhs=%lld, s=%s, size=%lld\n", lhs, rhs, s.c_str(), static_cast<ll>(ss.size()));
+    }
+    else
+    {
+        // 統合するパターン
+        ans = solve(lhs, rhs + 1);
+
+        // 結合しないパターン (手前まで結合して中に入れる)
+        string s = S.substr(lhs, rhs - lhs);
+        const auto it = ss.find(s);
+
+        // 既にある場合は結合しないパターンはできない
+        if (it != ss.end())
+        {
+            return ans;
+        }
+
+        // printf("lhs=%lld, rhs=%lld, s=%s, size=%lld\n", lhs, rhs, s.c_str(), static_cast<ll>(ss.size()));
+
+        ss.insert(s);
+        {
+            const ll res = solve(rhs, rhs + 1);
+            ans = max(ans, res);
+        }
+        ss.erase(s);
+    }
+    */
+
+    return ans;
+}
+
+int main()
+{
+    cin >> S;
+    N = static_cast<ll>(S.size());
+
+    const ll ans = solve(0, 0);
+    cout << ans << endl;
+
+    return 0;
+}

@@ -1,0 +1,54 @@
+#include <iostream>
+#include <vector>
+#include <list>
+#include <set>
+#include <queue>
+#include <map>
+#include <algorithm>
+#include <functional>
+#include <string>
+#include <complex>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <tuple>
+using namespace std;
+
+#define REP(i,p,n) for(ll i=p;i<ll(n);++i)
+#define rep(i,n) REP(i,0,n)
+
+using ll = long long int;
+using pll = pair<ll, ll>;
+
+const ll mod = static_cast<ll>(1e9) + 7;
+
+int main()
+{
+    ll N, X, Y;
+    cin >> N >> X >> Y;
+
+    REP (k, 1, N + 1)
+    {
+        ll res = 0;
+
+        // i番目について
+        rep (i, N)
+        {
+            // 組み合わせが範囲外まで行ったらダメ
+            if (N <= i + k) { continue; }
+
+            if (i <= X && X <= i + k)
+            {
+                const ll d = k - (X - i);
+                const ll a = Y - d;
+                const ll b = Y + d;
+                if (b < N) { ++res; }
+            }
+        }
+
+
+
+    }
+
+    return 0;
+}
